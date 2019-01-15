@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.techsavanna.melvinscart">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-feature
+        android:name="android.hardware.location.network"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+
+    <application
+        android:name=".app.AppController"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="android.app.default_searchable"
+            android:value=".MainActivity" />
+        <meta-data
+            android:name="com.google.android.gms.wallet.api.enabled"
+            android:value="true" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <!--
+             The API key for Google Maps-based APIs.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA9wqCqKvB26Z8VdgKTP-Utxa3chEXpY9o" />
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".MapsActivityCurrentPlace" />
+        <activity android:name=".RegisterActivity" />
+        <activity
+            android:name=".CustomersActivity"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity android:name=".ReportsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.techsavanna.melvinscart.HomeActivity" />
+        </activity>
+        <activity android:name=".SingleCustomer">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.techsavanna.melvinscart.CustomersActivity" />
+        </activity>
+        <activity android:name=".CustomerDashboard" />
+        <activity android:name=".StockTake">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.techsavanna.melvinscart.CustomerDashboard" />
+        </activity>
+        <activity android:name=".QuickOrder">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.techsavanna.melvinscart.CustomerDashboard" />
+        </activity>
+        <activity android:name=".CartActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.techsavanna.melvinscart.QuickOrder" />
+        </activity>
+        <activity android:name=".CheckoutActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.techsavanna.melvinscart.QuickOrder" />
+        </activity>
+        <activity android:name=".MpesaCheckoutActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.techsavanna.melvinscart.CheckoutActivity" />
+        </activity>
+        <activity android:name=".PostOrderActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.techsavanna.melvinscart.CheckoutActivity" />
+        </activity>
+    </application>
+
+</manifest>
